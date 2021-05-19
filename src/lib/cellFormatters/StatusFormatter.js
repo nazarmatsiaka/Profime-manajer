@@ -8,7 +8,7 @@ const statusesColor = {
     Deleted: '#FF0000',
 };
 
-const StatusCell = styled.td`
+const StatusCell = styled.div`
   text-align: center;
   color: ${({color}) => color};
 `;

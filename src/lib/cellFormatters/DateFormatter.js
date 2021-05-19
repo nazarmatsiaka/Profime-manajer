@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import moment from "moment";
 import styled from "styled-components";
 
-const DateCell = styled.td`
+const DateCell = styled.div`
   text-align: center;
 `;
 

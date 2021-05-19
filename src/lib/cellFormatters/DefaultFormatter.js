@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from "styled-components";
+
+const DefaultCell = styled.div`
+  text-align: right;
+`;
 
 const DefaultFormatter = ({value}) => {
-    return <td>{String(value)}</td>
+    return <DefaultCell>{String(value)}</DefaultCell>
 };
 
 DefaultFormatter.propTypes = {

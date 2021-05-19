@@ -1,6 +1,7 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import DefaultFormatter from "../../lib/cellFormatters/DefaultFormatter";
+import {BodyCell} from "./Table.style";
 
 const TRow = ({rowData, columns}) => {
 
@@ -8,12 +9,16 @@ const TRow = ({rowData, columns}) => {
         <tr>
             {columns.map(col => {
                 if (col.formatter) {
-                    //TODO: Change fragment to td
-                    return <Fragment key={col.id}>
-                        {col.formatter({colData: col, value: rowData[col.id], data: rowData})}
-                    </Fragment>;
+                    const component = col.formatter({colData: col, value: rowData[col.id], data: rowData})
+                    return <BodyCell key={col.id}>
+                        {component}
+                    </BodyCell>;
                 }
-                return <DefaultFormatter key={col.id} value={rowData[col.id]} />
+                return (
+                    <BodyCell key={col.id}>
+                        <DefaultFormatter value={rowData[col.id]}/>
+                    </BodyCell>
+                );
             })}
         </tr>
     )

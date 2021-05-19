@@ -2,11 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {HeadCell} from "./Table.style";
+import styled from "styled-components";
 
-const TableHeadCell = ({label}) => {
+const Arrow = styled.span`
+  width: 5px;
+  display: inline-block;
+`;
+
+const TableHeadCell = ({label, sorting, changeSorting, id}) => {
+    const arrow = sorting.order === 'reverse' ? <span>&uarr;</span> : <span>&darr;</span>;
 
     return (
-        <HeadCell>{label}</HeadCell>
+        <HeadCell onClick={changeSorting}>
+            {label}
+            <Arrow>
+                {sorting.column === id && arrow}
+            </Arrow>
+        </HeadCell>
     );
 };
 

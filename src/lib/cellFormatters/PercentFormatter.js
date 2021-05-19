@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 
-const PercentCell = styled.td`
+const PercentCell = styled.div`
   text-align: right;
-  padding-right: 10px;
 `;
 
 const PercentFormatter = ({value}) => {
