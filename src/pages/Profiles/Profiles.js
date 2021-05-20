@@ -5,7 +5,7 @@ import Table from "../../components/Table";
 
 import {profileColumns} from "../../lib/columns/profileColumns";
 import {ProfilesContext} from "../../context/ProfilesContext";
-import {PagesContainer} from "../../context/PagesContainer";
+import {PagesContainer} from "../../elemetns/PagesContainer";
 
 const Profiles = () => {
     const {profiles} = useContext(ProfilesContext);
@@ -19,6 +19,7 @@ const Profiles = () => {
                     column: 'profileName',
                     order: 'default',
                 }}
+                withSelectColumns
             />
         </PagesContainer>
     );

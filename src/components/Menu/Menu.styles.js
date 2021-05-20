@@ -14,7 +14,7 @@ export const List = styled.ul`
 
 export const Li = styled.li`
   margin-right: 10px;
-  background-color: ${({active}) => active ? '#7FFF00' : '#ddd'};
+  background-color: ${({active, theme}) => active ? theme.colors.green : '#ddd'};
   border-radius: 5px 5px 0 0;
 `;
 

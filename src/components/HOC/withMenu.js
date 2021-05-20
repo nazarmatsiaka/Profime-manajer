@@ -6,7 +6,7 @@ const withMenu = Component => ({location, ...props}) => {
     return (
         <>
             <Menu pathname={location.pathname}/>
-            <Component location={location} {...props} />
+            <Component location={location} {...props}/>
         </>
     );
 };

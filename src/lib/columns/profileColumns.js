@@ -7,7 +7,7 @@ import ProfileNameFormatter from "../cellFormatters/ProfilesFormatters/ProfileNa
 export const profileColumns = [
     {
         id: 'profileName',
-        label: 'ProfileName',
+        label: 'Profile Name',
         sort: true,
         formatter: ({value, data: {id}}) => <ProfileNameFormatter value={value} id={id} />
     },
@@ -30,7 +30,7 @@ export const profileColumns = [
     },
     {
         id: 'percentUsage',
-        label: 'Usage %',
+        label: 'Usage, %',
         sort: true,
         formatter: ({value}) => <PercentFormatter value={value} />,
     },

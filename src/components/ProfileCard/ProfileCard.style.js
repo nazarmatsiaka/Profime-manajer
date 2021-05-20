@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  border: 1px solid green;
+  border: 2px solid ${({theme}) => theme.colors.green};
   border-radius: 10px;
   overflow: hidden;
   max-width: 800px;

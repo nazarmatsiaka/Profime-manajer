@@ -1,20 +1,26 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useContext, useMemo, useState} from 'react';
 import {Button} from "../../elemetns/Button";
-import ModalContainer from "../Modals/ModalContainer";
+import {ModalContext} from "../../context/ModalContext";
 
-const withTableSelectColumns = Component => ({columns, ...props}) => {
-    const [visibleColumns, setVisibleColumns] = useState(columns.map(({id}) => id));
+const withTableSelectColumns = Component => ({withSelectColumns, columns, ...props}) => {
+    const [visibleColumnsId, setVisibleColumnsId] = useState(columns.map(i => i.id));
+
+    const {setModal} = useContext(ModalContext);
 
     const correctColumns = useMemo(() => {
+        if (withSelectColumns) {
+            return columns.filter(i => visibleColumnsId.includes(i.id));
+        }
         return columns;
-    }, [columns, visibleColumns]);
+    }, [columns, visibleColumnsId, withSelectColumns]);
 
-
+    const handleClick = useCallback(() => {
+        setModal('select-columns', {onSubmit: setVisibleColumnsId, visibleColumnsId, allColumns: columns});
+    }, [visibleColumnsId, setVisibleColumnsId, setModal]);
 
     return (
         <>
-            <ModalContainer />
-            <Button>Select columns</Button>
+            {withSelectColumns && <Button onClick={handleClick}>Select columns</Button>}
             <Component columns={correctColumns} {...props} />
         </>
     );
