@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const Table = styled.table`
-  width: 95%;
+  width: 100%;
   border-collapse: collapse;
-  margin: 0 auto;
 `;
 
 export const HeadCell = styled.th`
-  cursor: pointer;
+  cursor: ${({isPointer}) => isPointer ? 'pointer' : 'auto'};
   user-select: none;
   padding: 3px 20px;
   border: 1px solid #000;

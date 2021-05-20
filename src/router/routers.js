@@ -3,14 +3,15 @@ import {
     Switch,
     Route, Redirect,
 } from "react-router-dom";
-import Profiles from "../pages/Profiles/Profiles";
-import ProfileSummary from "../pages/ProfileSummary/ProfileSummary";
+
+import Profiles from "../pages/Profiles";
+import ProfileSummary from "../pages/SummaryProfile";
 
 const Routers = () => {
     return (
         <Switch>
             <Route exact path="/" component={Profiles} />
-            <Route exact path="/profile" component={ProfileSummary} />
+            <Route exact path="/profile/:id" component={ProfileSummary} />
             <Redirect to="/" />
         </Switch>
     );

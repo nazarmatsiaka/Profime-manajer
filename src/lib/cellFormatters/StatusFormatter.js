@@ -13,13 +13,13 @@ const StatusCell = styled.div`
   color: ${({color}) => color};
 `;
 
-const DateFormatter = ({value}) => {
+const StatusFormatter = ({value}) => {
     return <StatusCell color={statusesColor[value]}>{value}</StatusCell>
 };
 
 
-DateFormatter.propTypes = {
+StatusFormatter.propTypes = {
     value: PropTypes.string.isRequired,
 };
 
-export default DateFormatter;
+export default StatusFormatter;

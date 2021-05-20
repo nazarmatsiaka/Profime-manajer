@@ -2,12 +2,14 @@ import CurrencyFormatter from "../cellFormatters/CurrencyFormatter";
 import PercentFormatter from "../cellFormatters/PercentFormatter";
 import DateFormatter from "../cellFormatters/DateFormatter";
 import StatusFormatter from "../cellFormatters/StatusFormatter";
+import ProfileNameFormatter from "../cellFormatters/ProfilesFormatters/ProfileNameFormatter";
 
 export const profileColumns = [
     {
         id: 'profileName',
         label: 'ProfileName',
         sort: true,
+        formatter: ({value, data: {id}}) => <ProfileNameFormatter value={value} id={id} />
     },
     {
         id: 'profileStatus',

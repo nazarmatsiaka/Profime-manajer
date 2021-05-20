@@ -7,6 +7,7 @@ import {Table} from "./Table.style";
 import TableHeadCell from "./TableHeadCell";
 import TRow from "./TRow";
 import moment from "moment";
+import withTableSelectColumns from "../HOC/withTableSelectColumns";
 
 const TableComponents = ({data, columns, defaultSorting}) => {
     const [sorting, setSorting] = useState(defaultSorting);
@@ -51,7 +52,7 @@ const TableComponents = ({data, columns, defaultSorting}) => {
                         key={i.id}
                         id={i.id}
                         label={i.label}
-                        sorting={sorting}
+                        sorting={{...sorting, isSorting: i.sort}}
                         changeSorting={changeSorting(i.id)}
                     />)}
                 </tr>
@@ -83,4 +84,4 @@ TableComponents.propTypes = {
     }),
 };
 
-export default TableComponents;
+export default withTableSelectColumns(TableComponents);

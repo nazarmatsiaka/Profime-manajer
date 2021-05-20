@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Menu from "../Menu/Menu";
 
 const withMenu = Component => ({location, ...props}) => {

@@ -1,50 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
+
 import withMenu from "../../components/HOC/withMenu";
-import Table from "../../components/Table/Table";
+import Table from "../../components/Table";
+
 import {profileColumns} from "../../lib/columns/profileColumns";
+import {ProfilesContext} from "../../context/ProfilesContext";
+import {PagesContainer} from "../../context/PagesContainer";
 
 const Profiles = () => {
-    const data = [
-        {
-            id: 1,
-            profileName: 'Andrey',
-            profileStatus: 'Deleted',
-            creationDate: new Date(),
-            percentUsage: 0.46,
-            balance: 5000,
-            age: 28,
-            currency: 'USD',
-        },
-        {
-            id: 2,
-            profileName: 'Nazar',
-            profileStatus: 'Active',
-            creationDate: new Date('2001-12-17T03:24:00'),
-            percentUsage: 0.05,
-            balance: 200,
-            age: 22,
-            currency: 'EUR'
-        },
-        {
-            id: 3,
-            profileName: 'Person',
-            profileStatus: 'Paused',
-            creationDate: new Date('2003-12-17T03:24:00'),
-            percentUsage: 0.7,
-            balance: 76000,
-            age: 37,
-            currency: 'USD',
-        },
-    ];
+    const {profiles} = useContext(ProfilesContext);
+
     return (
-        <Table
-            columns={profileColumns}
-            data={data}
-            defaultSorting={{
-                column: 'profileName',
-                order: 'default',
-            }}
-        />
+        <PagesContainer>
+            <Table
+                columns={profileColumns}
+                data={profiles}
+                defaultSorting={{
+                    column: 'profileName',
+                    order: 'default',
+                }}
+            />
+        </PagesContainer>
     );
 }
 

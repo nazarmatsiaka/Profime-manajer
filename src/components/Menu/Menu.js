@@ -10,8 +10,8 @@ const Menu = ({pathname}) => {
                     <Li active={pathname === '/'}>
                         <NavLink to="/">Profiles</NavLink>
                     </Li>
-                    <Li active={pathname === '/profile'}>
-                        <NavLink to="/profile">Profile Summary</NavLink>
+                    <Li active={pathname.startsWith('/profile')}>
+                        <NavLink to="/profile/3">Profile Summary</NavLink>
                     </Li>
                 </List>
             </Nav>
