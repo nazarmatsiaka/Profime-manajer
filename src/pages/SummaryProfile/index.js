@@ -2,7 +2,7 @@ import SummaryProfile from "./SummaryProfile";
 import SummaryProfileContextProvider from "../../context/SummaryProfileContext";
 
 const SummaryProfileWithContext = (props) => (
-    <SummaryProfileContextProvider>
+    <SummaryProfileContextProvider id={props.match.params.id}>
         <SummaryProfile {...props} />
     </SummaryProfileContextProvider>
 );

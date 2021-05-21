@@ -8,7 +8,7 @@ const CurrencyCell = styled.div`
 
 const CurrencyFormatter = ({value, currency}) => {
     const bal = new Intl.NumberFormat('de-DE', { style: 'currency', currency }).format(value);
-    return <CurrencyCell>{bal}</CurrencyCell>;
+    return <CurrencyCell>{value && bal}</CurrencyCell>;
 };
 
 CurrencyFormatter.defaultProps = {
@@ -16,7 +16,7 @@ CurrencyFormatter.defaultProps = {
 };
 
 CurrencyFormatter.propTypes = {
-    value: PropTypes.number.isRequired,
+    value: PropTypes.number,
     currency: PropTypes.string,
 };
 

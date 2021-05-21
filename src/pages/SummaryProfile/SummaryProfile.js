@@ -4,11 +4,9 @@ import {SummaryProfileContext} from "../../context/SummaryProfileContext";
 import ProfileCard from "../../components/ProfileCard/ProfileCard";
 
 const SummaryProfile = () => {
-    const {profile} = useContext(SummaryProfileContext);
+    const {profile, fetching} = useContext(SummaryProfileContext);
 
-    return (
-        <ProfileCard data={profile} />
-    );
+    return fetching ? <div>Loading...</div> : <ProfileCard data={profile} />;
 }
 
 export default withMenu(SummaryProfile);

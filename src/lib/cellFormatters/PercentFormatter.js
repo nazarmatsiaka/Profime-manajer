@@ -8,11 +8,11 @@ const PercentCell = styled.div`
 
 const PercentFormatter = ({value}) => {
     const bal = new Intl.NumberFormat('en-US', { style: 'percent', maximumFractionDigits: 2 }).format(value);
-    return <PercentCell>{bal}</PercentCell>;
+    return <PercentCell>{value && bal}</PercentCell>;
 };
 
 PercentFormatter.propTypes = {
-    value: PropTypes.number.isRequired,
+    value: PropTypes.number,
 };
 
 export default PercentFormatter;

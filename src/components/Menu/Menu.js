@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Li, List, Nav, NavLink} from "./Menu.styles";
+import {Li, List, Nav, NavLink, NavLink2} from "./Menu.styles";
 
 const Menu = ({pathname}) => {
     return (
@@ -11,7 +11,7 @@ const Menu = ({pathname}) => {
                         <NavLink to="/">Profiles</NavLink>
                     </Li>
                     <Li active={pathname.startsWith('/profile')}>
-                        <NavLink to="/profile/3">Profile Summary</NavLink>
+                        <NavLink2 disabled>Profile Summary</NavLink2>
                     </Li>
                 </List>
             </Nav>

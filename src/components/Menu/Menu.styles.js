@@ -24,4 +24,15 @@ export const NavLink = styled(Link)`
   min-width: 80px;
   padding: 5px 25px;
   color: #000;
+  cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
+`;
+
+export const NavLink2 = styled.p`
+  text-decoration: none;
+  display: block;
+  min-width: 80px;
+  padding: 5px 25px;
+  color: #000;
+  user-select: none;
+  cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
 `;

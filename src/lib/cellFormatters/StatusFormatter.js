@@ -19,7 +19,7 @@ const StatusFormatter = ({value}) => {
 
 
 StatusFormatter.propTypes = {
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
 };
 
 export default StatusFormatter;

@@ -6,12 +6,17 @@ export const ProfilesContext = createContext();
 const ProfilesContextProvider = ({children}) => {
     const [profiles, setProfiles] = useState([]);
 
+    const [fetching, setFetching] = useState(false);
+
     useEffect(() => {
+        setFetching(true);
         firestoreDB.collection('profiles').get().then(
             (res) => {
                 const result = [];
                 res.forEach((i) => {
-                    result.push({id: i.id, ...i.data()});
+                    const creationDate = i.get('creationDate').toDate();
+                    result.push({id: i.id, ...i.data(), creationDate});
+                    setFetching(false);
                 });
                 setProfiles(result);
             },
@@ -20,7 +25,7 @@ const ProfilesContextProvider = ({children}) => {
     }, []);
 
     return (
-        <ProfilesContext.Provider value={{profiles, setProfiles}}>
+        <ProfilesContext.Provider value={{profiles, fetching}}>
             {children}
         </ProfilesContext.Provider>
     );

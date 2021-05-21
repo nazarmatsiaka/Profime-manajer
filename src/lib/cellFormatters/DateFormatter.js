@@ -10,7 +10,7 @@ const DateCell = styled.div`
 const DateFormatter = ({value, format}) => {
     const date = moment(value).format(format);
 
-    return <DateCell>{date}</DateCell>
+    return <DateCell>{value && date}</DateCell>
 };
 
 DateFormatter.defaultProps = {
@@ -18,7 +18,7 @@ DateFormatter.defaultProps = {
 };
 
 DateFormatter.propTypes = {
-    value: PropTypes.instanceOf(Date).isRequired,
+    value: PropTypes.instanceOf(Date),
     format: PropTypes.string,
 };
 

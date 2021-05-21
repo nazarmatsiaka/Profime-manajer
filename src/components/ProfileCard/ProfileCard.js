@@ -7,10 +7,10 @@ import {Card, DataContainer} from "./ProfileCard.style";
 import {Image} from "../../elemetns/Image";
 
 const ProfileCard = ({data}) => {
-    const {profileName, age, balance, currency, percentUsage, creationDate, profileStatus} = data;
+    const {profileName, age, balance, currency, percentUsage, creationDate, profileStatus, imageUrl} = data;
     return (
         <Card>
-            <Image circle src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"/>
+            <Image circle src={imageUrl}/>
             <DataContainer>
                 <h5>Profile Name</h5><p>{profileName}</p>
                 <h5>Age</h5><p>{age}</p>
