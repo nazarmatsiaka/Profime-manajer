@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from 'react';
+import React, {memo, useCallback, useContext, useState} from 'react';
 import {ModalContext} from "../../../context/ModalContext";
 import Checkbox from "../../../elemetns/Checkbox";
 import {ButtonsContainer} from "../../../elemetns/ButtonsContainer";
@@ -47,4 +47,4 @@ const SelectColumnsModal = () => {
 }
 ;
 
-export default SelectColumnsModal;
+export default memo(SelectColumnsModal);

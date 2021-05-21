@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 import DefaultFormatter from "../../lib/cellFormatters/DefaultFormatter";
 import {BodyCell} from "./Table.style";
@@ -37,4 +37,4 @@ TRow.propTypes = {
     })).isRequired,
 }
 
-export default TRow;
+export default memo(TRow);

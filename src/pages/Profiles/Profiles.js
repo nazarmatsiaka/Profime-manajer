@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {memo, useContext} from 'react';
 
 import withMenu from "../../components/HOC/withMenu";
 import Table from "../../components/Table";
@@ -26,4 +26,4 @@ const Profiles = () => {
     );
 }
 
-export default withMenu(Profiles);
+export default withMenu(memo(Profiles));

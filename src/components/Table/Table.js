@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {memo, useEffect, useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty} from 'lodash';
 
@@ -98,4 +98,4 @@ TableComponents.propTypes = {
     }),
 };
 
-export default withTableSelectColumns(TableComponents);
+export default withTableSelectColumns(memo(TableComponents));

@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {memo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
 import {HeadCell} from "./Table.style";
@@ -33,4 +33,4 @@ TableHeadCell.propTypes = {
     label: PropTypes.string.isRequired,
 }
 
-export default TableHeadCell;
+export default memo(TableHeadCell);

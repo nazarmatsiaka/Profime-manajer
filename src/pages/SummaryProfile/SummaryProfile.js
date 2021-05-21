@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {memo, useContext} from 'react';
 import withMenu from "../../components/HOC/withMenu";
 import {SummaryProfileContext} from "../../context/SummaryProfileContext";
 import ProfileCard from "../../components/ProfileCard/ProfileCard";
@@ -9,4 +9,4 @@ const SummaryProfile = () => {
     return fetching ? <div>Loading...</div> : <ProfileCard data={profile} />;
 }
 
-export default withMenu(SummaryProfile);
+export default withMenu(memo(SummaryProfile));

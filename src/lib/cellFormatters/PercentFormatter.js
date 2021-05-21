@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 
@@ -15,4 +15,4 @@ PercentFormatter.propTypes = {
     value: PropTypes.number,
 };
 
-export default PercentFormatter;
+export default memo(PercentFormatter);

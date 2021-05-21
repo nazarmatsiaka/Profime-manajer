@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 import {Li, List, Nav, NavLink, NavLink2} from "./Menu.styles";
 
@@ -19,4 +19,4 @@ const Menu = ({pathname}) => {
     );
 }
 
-export default Menu;
+export default memo(Menu);

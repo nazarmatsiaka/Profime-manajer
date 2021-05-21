@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import CurrencyFormatter from "../../lib/cellFormatters/CurrencyFormatter";
 import PercentFormatter from "../../lib/cellFormatters/PercentFormatter";
 import DateFormatter from "../../lib/cellFormatters/DateFormatter";
@@ -23,4 +23,4 @@ const ProfileCard = ({data}) => {
     );
 };
 
-export default ProfileCard;
+export default memo(ProfileCard);

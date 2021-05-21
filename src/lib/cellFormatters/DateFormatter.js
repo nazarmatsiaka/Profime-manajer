@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 import moment from "moment";
 import styled from "styled-components";
@@ -22,4 +22,4 @@ DateFormatter.propTypes = {
     format: PropTypes.string,
 };
 
-export default DateFormatter;
+export default memo(DateFormatter);

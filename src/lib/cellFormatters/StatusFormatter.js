@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 
@@ -22,4 +22,4 @@ StatusFormatter.propTypes = {
     value: PropTypes.string,
 };
 
-export default StatusFormatter;
+export default memo(StatusFormatter);

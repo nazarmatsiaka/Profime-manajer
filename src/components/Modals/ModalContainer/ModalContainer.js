@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {memo, useContext} from 'react';
 import PropTypes from 'prop-types';
 import {Container, Cross, Modal, ModalBody, ModalHeader, Title} from "./ModalContainer.styles";
 import {ModalContext} from "../../../context/ModalContext";
@@ -33,4 +33,4 @@ ModalContainer.defaultProps = {
 ModalContainer.propTypes = {
     width: PropTypes.string,
 }
-export default ModalContainer;
+export default memo(ModalContainer);
