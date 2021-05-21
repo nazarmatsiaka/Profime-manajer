@@ -1,7 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from 'firebase';
 
-const firebaseApp = firebase.initializeApp({
+firebase.initializeApp({
     apiKey: "AIzaSyBh0ksi6wxwD0wxhr8XXXUopYnb2L-NmU4",
     authDomain: "profile-manager-7313e.firebaseapp.com",
     projectId: "profile-manager-7313e",
@@ -10,4 +9,5 @@ const firebaseApp = firebase.initializeApp({
     appId: "1:1075978956658:web:79a0b757e5f40b2414f7eb"
 });
 
-export default firebaseApp;
+export const firestoreDB = firebase.firestore();
+export default firebase;
