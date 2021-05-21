@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty} from 'lodash';
 
@@ -8,9 +8,15 @@ import TableHeadCell from "./TableHeadCell";
 import TRow from "./TRow";
 import moment from "moment";
 import withTableSelectColumns from "../HOC/withTableSelectColumns";
+import {getTableSortingFromLocalStorage, setTableSortingToLocalStorage} from "../../localStorage/localStorage";
 
-const TableComponents = ({data, columns, defaultSorting}) => {
+const TableComponents = ({data, columns, defaultSorting, tableId}) => {
     const [sorting, setSorting] = useState(defaultSorting);
+
+    useEffect(() => {
+        const localStorageSorting = getTableSortingFromLocalStorage(tableId);
+        localStorageSorting && setSorting(localStorageSorting);
+    }, []);
 
     const correctData = useMemo(
         () => {
@@ -33,14 +39,21 @@ const TableComponents = ({data, columns, defaultSorting}) => {
 
     const changeSorting = (id) => () => {
         setSorting((prev) => {
+            let newSorting;
+
             if(prev.column === id) {
-                return {...prev, order: prev.order === 'reverse' ? 'default' : 'reverse'};
+                newSorting = {...prev, order: prev.order === 'reverse' ? 'default' : 'reverse'};
+            } else {
+                newSorting = {
+                    column: id,
+                    order: 'default',
+                };
             }
 
-            return {
-                column: id,
-                order: 'default',
-            }
+
+            setTableSortingToLocalStorage(tableId, newSorting);
+
+            return newSorting
         });
     };
 
@@ -72,6 +85,7 @@ TableComponents.defaultProps = {
 };
 
 TableComponents.propTypes = {
+    tableId: PropTypes.string.isRequired,
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     columns: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,

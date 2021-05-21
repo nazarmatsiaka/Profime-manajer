@@ -3,10 +3,11 @@ import {ModalContext} from "../../../context/ModalContext";
 import Checkbox from "../../../elemetns/Checkbox";
 import {ButtonsContainer} from "../../../elemetns/ButtonsContainer";
 import {Button} from "../../../elemetns/Button";
+import {setTableColumnsToLocalStorage} from "../../../localStorage/localStorage";
 
 const SelectColumnsModal = () => {
     const {
-        modalInfo: {data: {visibleColumnsId, allColumns, onSubmit}},
+        modalInfo: {data: {visibleColumnsId, allColumns, onSubmit, tableId}},
         closeModal,
     } = useContext(ModalContext);
 
@@ -25,7 +26,9 @@ const SelectColumnsModal = () => {
     }, [setDataForRender]);
 
     const handleSubmit = useCallback(() => {
-        onSubmit(dataForRender.filter(i => i.isSelect).map(i => i.id));
+        const newVisibleColumns = dataForRender.filter(i => i.isSelect).map(i => i.id);
+        onSubmit(newVisibleColumns);
+        setTableColumnsToLocalStorage(tableId, newVisibleColumns);
         closeModal();
     }, [dataForRender, onSubmit]);
 

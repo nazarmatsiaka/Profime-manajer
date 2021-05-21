@@ -9,11 +9,11 @@ import {PagesContainer} from "../../elemetns/PagesContainer";
 
 const Profiles = () => {
     const {profiles, fetching} = useContext(ProfilesContext);
-    console.log(profiles)
 
     return (
         <PagesContainer>
             {fetching ? <div>Loading...</div> : <Table
+                tableId="profilesTable"
                 columns={profileColumns}
                 data={profiles}
                 defaultSorting={{
